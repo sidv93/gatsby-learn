@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Pizzas = () => <div>Hey, I'm Pizzas page</div>;
+const Pizzas = () => <>Hey, I'm Pizzas page</>;
 
 export default Pizzas;

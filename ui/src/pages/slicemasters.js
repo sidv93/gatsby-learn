@@ -1,6 +1,5 @@
 import React from 'react';
-import Nav from '../components/Nav';
 
-const SliceMasters = () => <div>Hey, I'm SliceMasters page</div>;
+const SliceMasters = () => <>Hey, I'm SliceMasters page</>;
 
 export default SliceMasters;

@@ -1,11 +1,5 @@
 import React from 'react';
-import Nav from '../components/Nav';
 
-const Home = () => (
-  <div>
-    <Nav />
-    Hey! I'm home!
-  </div>
-);
+const Home = () => <>Hey! I'm home!</>;
 
 export default Home;

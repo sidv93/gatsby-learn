@@ -11,10 +11,10 @@ const Nav = () => (
         <Link to="/pizzas">Pizza Menu</Link>
       </li>
       <li>
-        <Link to="">LOGO</Link>
+        <Link to="/">LOGO</Link>
       </li>
       <li>
-        <Link to="slicemasters">Slice Masters</Link>
+        <Link to="/slicemasters">Slice Masters</Link>
       </li>
       <li>
         <Link to="/orders">Order</Link>
