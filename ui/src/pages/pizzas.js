@@ -1,13 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import PizzaList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingsFilter';
 
-const Pizzas = ({ data }) => {
+const Pizzas = ({ data, pageContext }) => {
   const pizzas = data.pizzas.nodes;
   return (
     <>
-      <ToppingsFilter />
+      <ToppingsFilter activeTopping={pageContext.topping} />
       <PizzaList pizzas={pizzas} />
     </>
   );
@@ -16,8 +16,10 @@ const Pizzas = ({ data }) => {
 export default Pizzas;
 
 export const query = graphql`
-  query PizzaQuery {
-    pizzas: allSanityPizza {
+  query PizzaQuery($topping: [String]) {
+    pizzas: allSanityPizza(
+      filter: { toppings: { elemMatch: { name: { in: $topping } } } }
+    ) {
       nodes {
         name
         id

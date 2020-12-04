@@ -25,6 +25,32 @@ const turnPizzasIntoPages = async ({ graphql, actions }) => {
   });
 };
 
+const turnToppingsIntoPages = async ({ graphql, actions }) => {
+  const toppingTemplate = path.resolve('./src/pages/pizzas.js');
+  const { data } = await graphql(`
+    query {
+      toppings: allSanityTopping {
+        nodes {
+          name
+          id
+        }
+      }
+    }
+  `);
+  data.toppings.nodes.forEach((topping) => {
+    actions.createPage({
+      path: `topping/${topping.name}`,
+      component: toppingTemplate,
+      context: {
+        topping: topping.name,
+      },
+    });
+  });
+};
+
 export const createPages = async (params) => {
-  await turnPizzasIntoPages(params);
+  await Promise.all([
+    turnPizzasIntoPages(params),
+    turnToppingsIntoPages(params),
+  ]);
 };
