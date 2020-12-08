@@ -25,7 +25,7 @@ const SingleBeer = styled.div`
 const Beers = ({ data }) => (
   <>
     <h2 className="center">
-      We have ${data.beers.nodes.length} beers available. Dine in only!
+      We have {data.beers.nodes.length} beers available. Dine in only!
     </h2>
     <BeerGrid>
       {data.beers.nodes.map((beer) => {
