@@ -25,7 +25,7 @@ const SingleBeer = styled.div`
 
 const Beers = ({ data }) => (
   <>
-  <SEO title={`Beers! We have ${data.beers.nodes.length} in stock`} />
+    <SEO title={`Beers! We have ${data.beers.nodes.length} in stock`} />
     <h2 className="center">
       We have {data.beers.nodes.length} beers available. Dine in only!
     </h2>
