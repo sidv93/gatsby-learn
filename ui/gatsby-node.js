@@ -89,6 +89,18 @@ const turnSliceMastersToPages = async ({ graphql, actions }) => {
       }
     }
   `);
+
+  data.slicemasters.nodes.forEach((slicemaster) => {
+    actions.createPage({
+      path: `/slicemaster/${slicemaster.slug.current}`,
+      component: path.resolve('./src/templates/Slicemaster.js'),
+      context: {
+        name: slicemaster.name,
+        slug: slicemaster.slug.current,
+      },
+    });
+  });
+
   const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
   console.log('page size', pageSize);
   const pageCount = Math.ceil(data.slicemasters.totalCount / pageSize);
