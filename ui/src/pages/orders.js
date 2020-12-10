@@ -5,6 +5,8 @@ import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
+import OrderStyles from '../styles/OrderStyles';
+import MenuItemStyles from '../styles/MenuItemStyles';
 
 const Orders = ({ data }) => {
   const { values, updateValue } = useForm({
@@ -15,7 +17,7 @@ const Orders = ({ data }) => {
   return (
     <>
       <SEO title="Order a pizza" />
-      <form>
+      <OrderStyles>
         <fieldset>
           <legend>Your Info</legend>
           <label htmlFor="name">Name</label>
@@ -33,10 +35,10 @@ const Orders = ({ data }) => {
             onChange={updateValue}
           />
         </fieldset>
-        <fieldset>
+        <fieldset className="menu">
           <legend>Menu</legend>
           {pizzas.map((pizza) => (
-            <div key={pizza.id}>
+            <MenuItemStyles key={pizza.id}>
               <Img
                 width="50"
                 height="50"
@@ -51,13 +53,13 @@ const Orders = ({ data }) => {
                   <button type="button">{size} {formatMoney(calculatePizzaPrice(pizza.price, size))}</button>
                 ))}
               </div>
-            </div>
+            </MenuItemStyles>
           ))}
         </fieldset>
-        <fieldset>
+        <fieldset className="order">
           <legend>Order</legend>
         </fieldset>
-      </form>
+      </OrderStyles>
     </>
   );
 };
