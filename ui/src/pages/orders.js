@@ -15,6 +15,7 @@ const Orders = ({ data }) => {
   const { values, updateValue } = useForm({
     name: '',
     email: '',
+    pizza: ''
   });
   const pizzas = data.pizzas.nodes;
   const { order, addToOrder, removeFromOrder, error, loading, message, submitOrder } = usePizza({
@@ -42,6 +43,13 @@ const Orders = ({ data }) => {
             type="email"
             name="email"
             value={values.email}
+            onChange={updateValue}
+          />
+          <input
+            type="text"
+            name="pizza"
+            className="pizza"
+            value={values.pizza}
             onChange={updateValue}
           />
         </fieldset>

@@ -36,8 +36,13 @@ const wait = (ms = 0) => {
 }
 
 exports.handler = async (event, context) => {
-  await wait(3000);
   const body = JSON.parse(event.body);
+  if(body.pizza) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({message: 'Bottt'})
+    }
+  }
   const requiredFields = ['name', 'email', 'order'];
   for (const field of requiredFields) {
     if (!body[field]) {
