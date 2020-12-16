@@ -25,7 +25,7 @@ const usePizza = ({ pizzas, values }) => {
     setMessage(null);
     const body = {
       order: attachNamesAndPrices(order, pizzas),
-      price: formatMoney(calculateOrderTotal(order, pizzas)),
+      total: formatMoney(calculateOrderTotal(order, pizzas)),
       name: values.name,
       email: values.email
     }
