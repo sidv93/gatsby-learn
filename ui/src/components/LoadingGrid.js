@@ -5,7 +5,7 @@ const LoadingGrid = ({ count }) => {
     return (
         <Items>
             {Array.from({ length: count }, (_, index) => (
-                <Item>
+                <Item key={String(index)}>
                     <p>
                         <span className="mark">Loading...</span>
                         </p>
