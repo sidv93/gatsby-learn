@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
 export const HomePage = styled.div`
+    --columns: 2;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
+
+    @media(max-width: 800px) {
+        --columns: 1;
+    }
 `;
 
 export const Items = styled.div`
@@ -20,10 +25,14 @@ export const Item = styled.div`
         font-size: 0;
     }
     p {
-        transform: rotate(-2deg) translateY(-140%);
+        top: 0;
+        transform: rotate(-2deg) translateY(-10px);
         position: absolute;
         width: 100%;
         left: 0;
+        margin: 0;
+        font-size: 2rem;
+        font-size: clamp(12px, 5vw, 20px);
     }
     .mark {
         display: inline;
